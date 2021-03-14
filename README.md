@@ -12,7 +12,7 @@
 对于返回值规则：  
     error结构类与golang内置类型的Error()方法相同，只返回一个string
     event结构类拥有Description()方法，分别返回四个值，分别是：uniqueid string, code int(事件常量的整数表达), conststring string(事件常量的字符串表达), commit string(同上)  
-    error内部组合了对应event实体，的Error()方法内部调用了event实体的Description()方法进而合成了最终的string类型返回值，具体调用方式代码片段如下：  
+    一个error内部组合了一个与其对应的event实体，他的Error()方法内部也调用了event实体的Description()方法进而合成了最终的string类型返回值，具体调用方式代码片段如下：  
     *_, _, conststring, commit  := p.Description()*
 ***
   **2021年3月14日12点21分:**  
